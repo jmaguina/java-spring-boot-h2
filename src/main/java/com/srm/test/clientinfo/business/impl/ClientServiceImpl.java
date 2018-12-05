@@ -19,12 +19,14 @@ class ClientServiceImpl implements ClientService {
 
     ClientInfoResponse clientInfoResponse = new ClientInfoResponse();
 
-    if (clientInfoRequest.getInterestList().equals(tipoA))
-      clientInfoResponse.setResult("El resultado se mantiene igual :"
-              + clientInfoRequest.getClienteName() + "Limite de credito: "
+    if (clientInfoRequest.getInterestList().equalsIgnoreCase(tipoA))
+      clientInfoResponse.setResult("El resultado se mantiene igual Nombre de cliente: "
+              + clientInfoRequest.getClienteName() + " Limite de credito: "
               + clientInfoRequest.getLimitedCredit());
     else
       clientInfoResponse.setResult("Tasa de interes variable");
+
+
     return clientInfoResponse;
   }
 }
