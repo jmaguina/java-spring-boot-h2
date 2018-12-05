@@ -1,13 +1,17 @@
 package com.srm.test.clientinfo.model;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class ClientInfoRequest implements Serializable {
 
+    @NotNull
     private String clienteName;
 
+    @NotNull
     private Float limitedCredit;
 
+    @NotNull
     private String interestList;
 
     public String getClienteName() {

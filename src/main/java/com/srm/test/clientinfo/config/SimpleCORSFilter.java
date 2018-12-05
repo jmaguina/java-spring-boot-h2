@@ -11,8 +11,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Clase que permite controlar el cross domain agregando a la
@@ -20,8 +18,6 @@ import java.util.List;
  */
 @Component
 public class SimpleCORSFilter implements Filter {
-    private final List<String> allowedOrigins = Arrays.asList("http://www.sckola.com"
-            , "http://sckola.com", "https://sckola.com", "https://www.sckola.com", "http://localhost:8000");
 
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         // Lets make sure that we are working with HTTP (that is, against HttpServletRequest and HttpServletResponse objects)

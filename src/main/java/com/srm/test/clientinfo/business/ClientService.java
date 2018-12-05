@@ -10,5 +10,5 @@ import com.srm.test.clientinfo.model.ClientInfoResponse;
 
 public interface ClientService {
 
-  ClientInfoResponse save(ClientInfoRequest clientInfoRequest);
+  ClientInfoResponse consult(ClientInfoRequest clientInfoRequest);
 }
