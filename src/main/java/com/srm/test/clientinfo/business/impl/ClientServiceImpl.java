@@ -4,6 +4,8 @@ import static com.srm.test.clientinfo.util.Constants.tipoA;
 import com.srm.test.clientinfo.business.ClientService;
 import com.srm.test.clientinfo.model.ClientInfoRequest;
 import com.srm.test.clientinfo.model.ClientInfoResponse;
+import com.srm.test.clientinfo.persistence.ClientRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,6 +15,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 class ClientServiceImpl implements ClientService {
+
+  @Autowired
+  ClientRepository clientRepository;
 
   @Override
   public ClientInfoResponse consult(ClientInfoRequest clientInfoRequest) {

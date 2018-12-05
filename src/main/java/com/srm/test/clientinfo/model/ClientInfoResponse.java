@@ -2,6 +2,10 @@ package com.srm.test.clientinfo.model;
 
 import java.io.Serializable;
 
+/**
+ * @author Cesar.
+ * @version 1.0
+ */
 public class ClientInfoResponse implements Serializable {
 
     private String result;

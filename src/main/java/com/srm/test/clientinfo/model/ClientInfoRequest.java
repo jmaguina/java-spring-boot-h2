@@ -3,6 +3,10 @@ package com.srm.test.clientinfo.model;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+/**
+ * @author Cesar.
+ * @version 1.0
+ */
 public class ClientInfoRequest implements Serializable {
 
     @NotNull

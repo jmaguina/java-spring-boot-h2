@@ -15,6 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.IOException;
 
+/**
+ * @author Cesar.
+ * @version 1.0
+ */
 @RestController
 @RequestMapping("/clienteinfo/client")
 public class ClientController {
