@@ -17,11 +17,12 @@ class ClientServiceImpl implements ClientService {
   @Override
   public ClientInfoResponse consult(ClientInfoRequest clientInfoRequest) {
 
-
     ClientInfoResponse clientInfoResponse = new ClientInfoResponse();
 
     if (clientInfoRequest.getInterestList().equals(tipoA))
-      clientInfoResponse.setResult("El resultado se mantiene igual");
+      clientInfoResponse.setResult("El resultado se mantiene igual :"
+              + clientInfoRequest.getClienteName() + "Limite de credito: "
+              + clientInfoRequest.getLimitedCredit());
     else
       clientInfoResponse.setResult("Tasa de interes variable");
     return clientInfoResponse;
