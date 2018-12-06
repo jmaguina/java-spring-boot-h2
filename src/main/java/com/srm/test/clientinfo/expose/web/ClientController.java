@@ -27,7 +27,7 @@ public class ClientController {
     public ClientService clientService;
 
     /**
-     *
+     * Controlador que maneja el recurso client.
      * @param clientInfoRequest
      * @return
      * @throws IOException

@@ -1,10 +1,13 @@
 package com.srm.test.clientinfo.business.impl;
 
 import static com.srm.test.clientinfo.util.Constants.tipoA;
+import static com.srm.test.clientinfo.util.Constants.tipoB;
+import static com.srm.test.clientinfo.util.Constants.tipoC;
 import com.srm.test.clientinfo.business.ClientService;
 import com.srm.test.clientinfo.model.ClientInfoRequest;
 import com.srm.test.clientinfo.model.ClientInfoResponse;
 import com.srm.test.clientinfo.persistence.ClientRepository;
+import com.srm.test.clientinfo.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +22,7 @@ class ClientServiceImpl implements ClientService {
   @Autowired
   ClientRepository clientRepository;
 
+
   @Override
   public ClientInfoResponse consult(ClientInfoRequest clientInfoRequest) {
 
@@ -28,9 +32,15 @@ class ClientServiceImpl implements ClientService {
       clientInfoResponse.setResult("El resultado se mantiene igual Nombre de cliente: "
               + clientInfoRequest.getClienteName() + " Limite de credito: "
               + clientInfoRequest.getLimitedCredit());
-    else
-      clientInfoResponse.setResult("Tasa de interes variable");
 
+    if (clientInfoRequest.getInterestList().equalsIgnoreCase(tipoB))
+      clientInfoResponse.setResult("El riesgo para : "
+              + clientInfoRequest.getClienteName() + " es "
+              + Utils.interestRate(clientInfoRequest.getInterestList(), clientInfoRequest.getLimitedCredit()));
+    if (clientInfoRequest.getInterestList().equalsIgnoreCase(tipoC))
+      clientInfoResponse.setResult("El riesgo para : "
+              + clientInfoRequest.getClienteName() + " es "
+              + Utils.interestRate(clientInfoRequest.getInterestList(), clientInfoRequest.getLimitedCredit()));
 
     return clientInfoResponse;
   }
