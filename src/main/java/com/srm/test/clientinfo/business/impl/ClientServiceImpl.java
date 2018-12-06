@@ -6,6 +6,7 @@ import static com.srm.test.clientinfo.util.Constants.tipoC;
 import com.srm.test.clientinfo.business.ClientService;
 import com.srm.test.clientinfo.model.ClientInfoRequest;
 import com.srm.test.clientinfo.model.ClientInfoResponse;
+import com.srm.test.clientinfo.persistence.Client;
 import com.srm.test.clientinfo.persistence.ClientRepository;
 import com.srm.test.clientinfo.util.Utils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,6 @@ class ClientServiceImpl implements ClientService {
 
   @Autowired
   ClientRepository clientRepository;
-
 
   @Override
   public ClientInfoResponse consult(ClientInfoRequest clientInfoRequest) {
@@ -41,6 +41,10 @@ class ClientServiceImpl implements ClientService {
       clientInfoResponse.setResult("El riesgo para : "
               + clientInfoRequest.getClienteName() + " es "
               + Utils.interestRate(clientInfoRequest.getInterestList(), clientInfoRequest.getLimitedCredit()));
+
+    clientRepository.save(new Client(10001L, clientInfoRequest.getClienteName(),
+            clientInfoRequest.getLimitedCredit().toString(), clientInfoRequest.getInterestList(),
+            Utils.interestRate(clientInfoRequest.getInterestList(), clientInfoRequest.getLimitedCredit()).toString()));
 
     return clientInfoResponse;
   }
